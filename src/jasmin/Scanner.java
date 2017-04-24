@@ -329,6 +329,10 @@ class Scanner implements java_cup.runtime.Scanner {
 			return null;
 		
 		// Check for special numbers
+		if (str.equals("-Infinity"))
+			return new Symbol(sym.Num, Double.NEGATIVE_INFINITY);
+		if (str.equals("Infinity"))
+			return new Symbol(sym.Num, Double.POSITIVE_INFINITY);
 		if (str.equals("+DoubleInfinity"))
 			return new Symbol(sym.Num, new Double(1.0 / 0.0));
 		if (str.equals("+DoubleNaN"))
